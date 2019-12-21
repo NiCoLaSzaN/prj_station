@@ -32,7 +32,6 @@ MainWindow::MainWindow(QWidget *parent) :
     // affichage pictogramme et temperature actuel
 
     weather w5;
-
     ui->lineEditPrev1Date->setText(w5.metJourSemaine()[0]+" "+w5.metRecupDateSemaine()[0]);
     ui->lineEditPrev2Date->setText(w5.metJourSemaine()[1]+" "+w5.metRecupDateSemaine()[1]);
     ui->lineEditPrev3Date->setText(w5.metJourSemaine()[2]+" "+w5.metRecupDateSemaine()[2]);
@@ -72,7 +71,6 @@ MainWindow::MainWindow(QWidget *parent) :
 //    ui->lineEditIntHumidity->setText(w5.capteur()[3]);
 //    ui->lineEditPression->setText(w5.capteur()[2]);
 }
-
     // methode Date Time
 
 void MainWindow::showTime(){
@@ -88,7 +86,6 @@ void MainWindow::showTime(){
 MainWindow::~MainWindow(){
     delete ui;
 }
-
     // methode de fermeture de la fenetre fichier => quitter
 
 void MainWindow::on_actionQuitter_triggered(){

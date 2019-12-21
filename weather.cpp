@@ -408,7 +408,6 @@ QList<QString>weather::capteur(){
     return this->dataCapteur;
 }
 */
-
     // methode recuperation du temp actuel pour affichage des pictogrammes
 
 QString weather::metPictogrammeTmpActuel(){
@@ -429,7 +428,6 @@ QString weather::metPictogrammeTmpActuel(){
         this->pictoActuel=str;
         return this->pictoActuel;
 }
-
     // methode creation du pixmap
 
 QPixmap weather::metCreationPixmap(QString val){
@@ -448,11 +446,9 @@ QPixmap weather::metCreationPixmap(QString val){
     else if(val == "Thunderstorm")
         res = QPixmap(":/new/prefix1/logo/nuage3.png");
 
-
     this->pixMap=res;
     return this->pixMap;
 }
-
     // methode recuperation du temps des previsions
 
 QList<QString>weather::metPictogrammeTmpPrevision(){
@@ -470,7 +466,6 @@ QList<QString>weather::metPictogrammeTmpPrevision(){
         QJsonObject jsonObject = jsonResponse.object();
         QJsonValue ress = jsonObject.value("list");
         for(int i=0;i<40;i++){
-
             QJsonValue ress9 = ress[i]["dt_txt"];
             QStringList t = ress9.toString().split(' ');
             if(t[1]=="09:00:00"){
@@ -483,7 +478,6 @@ QList<QString>weather::metPictogrammeTmpPrevision(){
         this->stringPrevision=listePrev;
         return this->stringPrevision;
 }
-
 // methode en cour recuperer les dates pour afficher les jours de la semaines
 
 QList<QString>weather::metRecupDateSemaine(){
@@ -499,7 +493,6 @@ QList<QString>weather::metRecupDateSemaine(){
     QJsonDocument jsonResponse = configJsonDoc;
     QJsonObject jsonObject = jsonResponse.object();
     QJsonValue ress = jsonObject.value("list");
-
     QList<QString>listTmp;
     for(int i=0;i<40;i++){
         QJsonValue ress3 = ress[i]["dt_txt"];
@@ -516,20 +509,19 @@ QList<QString>weather::metRecupDateSemaine(){
 QList<QString>weather::metJourSemaine(){
 
     QList<QString>listLundi;
-    listLundi={"mardi","mercredi","jeudi","vendredi","samedi","dimanche"};
+    listLundi={"mardi","mercredi","jeudi","vendredi","samedi"};
     QList<QString>listmardi;
-    listmardi={"mercredi","jeudi","vendredi","samedi","dimanche","lundi"};
+    listmardi={"mercredi","jeudi","vendredi","samedi","dimanche"};
     QList<QString>listmercredi;
-    listmercredi={"jeudi","vendredi","samedi","dimanche","lundi","mardi"};
+    listmercredi={"jeudi","vendredi","samedi","dimanche","lundi"};
     QList<QString>listjeudi;
-    listjeudi={"vendredi","samedi","dimanche","lundi","mardi","mercredi"};
+    listjeudi={"vendredi","samedi","dimanche","lundi","mardi"};
     QList<QString>listvendredi;
-    listvendredi={"samedi","dimanche","lundi","mardi","mercredi","jeudi"};
+    listvendredi={"samedi","dimanche","lundi","mardi","mercredi"};
     QList<QString>listsamedi;
-    listsamedi={"dimanche","lundi","mardi","mercredi","jeudi","vendredi"};
+    listsamedi={"dimanche","lundi","mardi","mercredi","jeudi"};
     QList<QString>listdimanche;
-    listdimanche={"lundi","mardi","mercredi","jeudi","vendredi","samedi"};
-
+    listdimanche={"lundi","mardi","mercredi","jeudi","vendredi"};
     QList<QString>maList;
     QDateTime dateTime=QDateTime::currentDateTime();
     QString datetimetext=dateTime.toString();
