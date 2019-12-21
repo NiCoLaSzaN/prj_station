@@ -46,6 +46,11 @@ private :
 
     QList<QString>stringPrevision;
 
+    // en process
+    QList<QString>RecupDateSemaine;
+    //in process
+    QList<QString>listSemaine;
+
 public:
     weather();
 
@@ -63,6 +68,12 @@ public:
     QString metExtTmpMaxF();
     QString metExtTmpMinF();
     QMap<QString,QString>metPrevTmpDateF();
+
+    // en process
+    QList<QString>metRecupDateSemaine();
+    // in process
+    QList<QString>metJourSemaine();
+
 
 //    QList<QString>capteur();
 

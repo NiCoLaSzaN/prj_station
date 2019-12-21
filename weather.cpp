@@ -484,6 +484,71 @@ QList<QString>weather::metPictogrammeTmpPrevision(){
         return this->stringPrevision;
 }
 
+// methode en cour recuperer les dates pour afficher les jours de la semaines
 
+QList<QString>weather::metRecupDateSemaine(){
 
+    QNetworkRequest request(QUrl("http://api.openweathermap.org/data/2.5/forecast?q=Paris&units=imperial&appid=1ca25422b331304ab48eab60d0d1ab54"));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    QNetworkAccessManager mgr;
+    QNetworkReply * reply = mgr.get(request);
+    while(!reply->isFinished()){
+        qApp->processEvents();}
+    QByteArray reponse = reply->readAll();
+    QJsonDocument configJsonDoc = QJsonDocument::fromJson(reponse);
+    QJsonDocument jsonResponse = configJsonDoc;
+    QJsonObject jsonObject = jsonResponse.object();
+    QJsonValue ress = jsonObject.value("list");
 
+    QList<QString>listTmp;
+    for(int i=0;i<40;i++){
+        QJsonValue ress3 = ress[i]["dt_txt"];
+        QStringList t = ress3.toString().split(' ');
+        if(t[1]=="09:00:00"){
+        QStringList t2 = t[0].split('-');
+        listTmp.push_back(t2[2]);
+        }
+    }
+    this->RecupDateSemaine=listTmp;
+    return this->RecupDateSemaine;
+}
+
+QList<QString>weather::metJourSemaine(){
+
+    QList<QString>listLundi;
+    listLundi={"mardi","mercredi","jeudi","vendredi","samedi","dimanche"};
+    QList<QString>listmardi;
+    listmardi={"mercredi","jeudi","vendredi","samedi","dimanche","lundi"};
+    QList<QString>listmercredi;
+    listmercredi={"jeudi","vendredi","samedi","dimanche","lundi","mardi"};
+    QList<QString>listjeudi;
+    listjeudi={"vendredi","samedi","dimanche","lundi","mardi","mercredi"};
+    QList<QString>listvendredi;
+    listvendredi={"samedi","dimanche","lundi","mardi","mercredi","jeudi"};
+    QList<QString>listsamedi;
+    listsamedi={"dimanche","lundi","mardi","mercredi","jeudi","vendredi"};
+    QList<QString>listdimanche;
+    listdimanche={"lundi","mardi","mercredi","jeudi","vendredi","samedi"};
+
+    QList<QString>maList;
+    QDateTime dateTime=QDateTime::currentDateTime();
+    QString datetimetext=dateTime.toString();
+    QStringList t3 = datetimetext.split('.');
+    if(t3[0]=="sam"){
+        maList=listsamedi;
+    }else if(t3[0]=="dim"){
+        maList=listdimanche;
+    }else if(t3[0]=="lun"){
+        maList=listLundi;
+    }else if(t3[0]=="mar"){
+        maList=listmardi;
+    }else if(t3[0]=="mer"){
+        maList=listmercredi;
+    }else if(t3[0]=="jeu"){
+        maList=listjeudi;
+    }else if(t3[0]=="ven"){
+        maList=listvendredi;
+    }
+    this->listSemaine = maList;
+    return this->listSemaine;
+}
