@@ -47,8 +47,9 @@ private :
     QList<QString>stringPrevision;
 
     QList<QString>RecupDateSemaine;
-
     QList<QString>listSemaine;
+
+    QString AffDate;
 
 public:
     weather();
@@ -69,9 +70,9 @@ public:
     QMap<QString,QString>metPrevTmpDateF();
 
     QList<QString>metRecupDateSemaine();
-
     QList<QString>metJourSemaine();
 
+    QString metAffichageDate();
 
 //    QList<QString>capteur();
 

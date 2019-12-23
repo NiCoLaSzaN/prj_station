@@ -37,9 +37,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // affichage date
 
-    QDate dateTime;
-    QString datetimetext=dateTime.currentDate().toString();
-    ui->Date_Time->setText(datetimetext);
+    weather date;
+    ui->Date_Time->setText(date.metAffichageDate());
 
     // font label Interieur et Exterieur
 

@@ -537,3 +537,70 @@ QList<QString>weather::metJourSemaine(){
     this->listSemaine = maList;
     return this->listSemaine;
 }
+
+// methode affichage date in process
+
+QString weather::metAffichageDate(){
+
+    QString date_final;
+    QDate date;
+    QString dateText=date.currentDate().toString();
+    QStringList t3 = dateText.split(' ');
+    QString jour = t3[0];
+    QString mois = t3[1];
+    QString date_jour = t3[2];
+    QString date_annee = t3[3];
+    if(jour=="sam."){
+        jour="samedi";
+    }else if(jour=="dim."){
+        jour="dimanche";
+    }else if(jour=="lun."){
+        jour="Lundi";
+    }else if(jour=="mar."){
+        jour="mardi";
+    }else if(jour=="mer."){
+        jour="mercredi";
+    }else if(jour=="jeu."){
+        jour="jeudi";
+    }else if(jour=="ven."){
+        jour="vendredi";
+    }
+    if(mois=="déc."){
+        mois="décembre";
+    }else if(mois=="jan."){
+        mois="janvier";
+    }else if(mois=="fév."){
+        mois="février";
+    }else if(mois == "mar."){
+        mois="mars";
+    }else if(mois=="avr."){
+        mois="avril";
+    }else if(mois=="mai."){
+        mois="mai";
+    }else if(mois=="jui."){
+        mois="juin";
+    }else if(mois=="jui."){
+        mois="juillet";
+    }else if(mois=="aoû."){
+        mois="août";
+    }else if(mois=="sep."){
+        mois="septembre";
+    }else if(mois=="oct."){
+        mois="octobre";
+    }else if(mois=="nov."){
+        mois="novembre";
+    }
+
+    date_final=jour+" "+date_jour+" "+mois+" "+date_annee;
+    return date_final;
+}
+
+
+
+
+
+
+
+
+
+
