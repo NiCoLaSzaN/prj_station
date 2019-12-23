@@ -18,13 +18,16 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>10</y>
+      <y>20</y>
       <width>171</width>
-      <height>51</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>   EXTERIEUR</string>
+     <string>  Extérieur</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_6">
@@ -296,8 +299,8 @@
    <widget class="QLabel" name="Date_Time">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>0</y>
+      <x>360</x>
+      <y>10</y>
       <width>191</width>
       <height>16</height>
      </rect>
@@ -310,7 +313,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>20</y>
+      <y>30</y>
       <width>121</width>
       <height>16</height>
      </rect>
@@ -323,13 +326,16 @@
     <property name="geometry">
      <rect>
       <x>640</x>
-      <y>10</y>
+      <y>20</y>
       <width>171</width>
-      <height>51</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>   INTERIEUR</string>
+     <string> Intérieur</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QSplitter" name="splitter">
@@ -370,6 +376,43 @@
      </property>
     </widget>
    </widget>
+   <widget class="QLabel" name="fond">
+    <property name="geometry">
+     <rect>
+      <x>-2</x>
+      <y>0</y>
+      <width>861</width>
+      <height>461</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <zorder>fond</zorder>
+   <zorder>labelEXT</zorder>
+   <zorder>label_6</zorder>
+   <zorder>label_7</zorder>
+   <zorder>label_8</zorder>
+   <zorder>label_9</zorder>
+   <zorder>label_10</zorder>
+   <zorder>lineEditPression</zorder>
+   <zorder>splitter_8</zorder>
+   <zorder>lineEditExtHumidity</zorder>
+   <zorder>lineEditIntHumidity</zorder>
+   <zorder>splitter_7</zorder>
+   <zorder>splitter_9</zorder>
+   <zorder>labelFormat</zorder>
+   <zorder>checkBoxF</zorder>
+   <zorder>labelActuel</zorder>
+   <zorder>soleil</zorder>
+   <zorder>splitter_2</zorder>
+   <zorder>splitter_3</zorder>
+   <zorder>labelPrevision</zorder>
+   <zorder>Date_Time</zorder>
+   <zorder>Digital_clock</zorder>
+   <zorder>labelINT</zorder>
+   <zorder>splitter</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -377,7 +420,7 @@
      <x>0</x>
      <y>0</y>
      <width>857</width>
-     <height>21</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">

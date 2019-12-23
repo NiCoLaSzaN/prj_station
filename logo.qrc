@@ -8,4 +8,7 @@
         <file>logo/soleil.png</file>
         <file>logo/soleil-nuage.png</file>
     </qresource>
+    <qresource prefix="/pic">
+        <file>sky.jpg</file>
+    </qresource>
 </RCC>

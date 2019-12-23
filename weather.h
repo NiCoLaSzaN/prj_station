@@ -1,4 +1,4 @@
-﻿#ifndef WEATHER_H
+#ifndef WEATHER_H
 #define WEATHER_H
 
 #include <QObject>
@@ -46,9 +46,8 @@ private :
 
     QList<QString>stringPrevision;
 
-    // en process
     QList<QString>RecupDateSemaine;
-    //in process
+
     QList<QString>listSemaine;
 
 public:
@@ -69,13 +68,12 @@ public:
     QString metExtTmpMinF();
     QMap<QString,QString>metPrevTmpDateF();
 
-    // en process
     QList<QString>metRecupDateSemaine();
-    // in process
+
     QList<QString>metJourSemaine();
 
 
-//    QList<QString>capteur();
+    QList<QString>capteur();
 
 };
 

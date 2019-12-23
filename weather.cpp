@@ -69,7 +69,6 @@ QString weather::metExtTmpMinC(){
         this->ExtTmpMinC = nn;
         return this->ExtTmpMinC;
 }
-
     // methode api pour humidité exterieur actuel FAHRENHEIT
 
 QString weather::metExtHumidityF(){
@@ -91,7 +90,6 @@ QString weather::metExtHumidityF(){
         this->ExtHumidityF = nn;
         return this->ExtHumidityF;
 }
-
     // methode api temperature exterieur maximum actuel FAHRENHEIT
 
 QString weather::metExtTmpMaxF(){
@@ -113,7 +111,6 @@ QString weather::metExtTmpMaxF(){
         this->ExtTmpMaxF = nn;
         return this->ExtTmpMaxF;
 }
-
     // methode api temperature exterieur minimum actuel FAHRENHEIT
 
 QString weather::metExtTmpMinF(){
@@ -135,7 +132,6 @@ QString weather::metExtTmpMinF(){
         this->ExtTmpMinF = nn;
         return this->ExtTmpMinF;
 }
-
     // methode previsions CELCIUS
 
 QMap<QString,QString>weather::metPrevTmpDateC(){
@@ -166,7 +162,6 @@ QMap<QString,QString>weather::metPrevTmpDateC(){
         this->PrevDateC=dico;
         return this->PrevDateC;
 }
-
     // methode previsions FAHRENHEIT
 
 QMap<QString,QString>weather::metPrevTmpDateF(){
@@ -197,10 +192,8 @@ QMap<QString,QString>weather::metPrevTmpDateF(){
         this->PrevDateF=dico;
         return this->PrevDateF;
 }
-
-
     // methode recolte des datas du capteur
-/*
+
 QList<QString>weather::capteur(){
 
     int file;
@@ -407,7 +400,6 @@ QList<QString>weather::capteur(){
 
     return this->dataCapteur;
 }
-*/
     // methode recuperation du temp actuel pour affichage des pictogrammes
 
 QString weather::metPictogrammeTmpActuel(){
@@ -478,7 +470,7 @@ QList<QString>weather::metPictogrammeTmpPrevision(){
         this->stringPrevision=listePrev;
         return this->stringPrevision;
 }
-// methode en cour recuperer les dates pour afficher les jours de la semaines
+  // methode en cour recuperer les dates pour afficher les jours de la semaines
 
 QList<QString>weather::metRecupDateSemaine(){
 
