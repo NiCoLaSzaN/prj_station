@@ -193,7 +193,7 @@ QMap<QString,QString>weather::metPrevTmpDateF(){
         return this->PrevDateF;
 }
     // methode recolte des datas du capteur
-
+/*
 QList<QString>weather::capteur(){
 
     int file;
@@ -400,6 +400,7 @@ QList<QString>weather::capteur(){
 
     return this->dataCapteur;
 }
+*/
     // methode recuperation du temp actuel pour affichage des pictogrammes
 
 QString weather::metPictogrammeTmpActuel(){

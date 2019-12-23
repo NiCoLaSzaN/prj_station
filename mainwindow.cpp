@@ -90,9 +90,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // affichage des datas du capteur
 
-    ui->lineEditIntTemp->setText(w5.capteur()[0]);
-    ui->lineEditIntHumidity->setText(w5.capteur()[3]);
-    ui->lineEditPression->setText(w5.capteur()[2]);
+//    ui->lineEditIntTemp->setText(w5.capteur()[0]);
+//    ui->lineEditIntHumidity->setText(w5.capteur()[3]);
+//    ui->lineEditPression->setText(w5.capteur()[2]);
 }
     // methode format d'affichage de l'heure
 
@@ -141,8 +141,8 @@ void MainWindow::on_checkBoxF_stateChanged(int arg1)
 
       // affichage des datas du capteur FAHRENHEIT
 
-        ui->lineEditIntTemp->setText(w3.capteur()[1]);
-        ui->lineEditPression->setText(w3.capteur()[2]);
+//        ui->lineEditIntTemp->setText(w3.capteur()[1]);
+//        ui->lineEditPression->setText(w3.capteur()[2]);
     }else{
 
         // affichage des temperatures exterieur CELCIUS
@@ -167,9 +167,9 @@ void MainWindow::on_checkBoxF_stateChanged(int arg1)
 
             // affichage des datas du capteur CELCIUS
 
-            ui->lineEditIntTemp->setText(w4.capteur()[0]);
-            ui->lineEditIntHumidity->setText(w4.capteur()[3]);
-            ui->lineEditPression->setText(w4.capteur()[2]);
+//            ui->lineEditIntTemp->setText(w4.capteur()[0]);
+//            ui->lineEditIntHumidity->setText(w4.capteur()[3]);
+//            ui->lineEditPression->setText(w4.capteur()[2]);
     }
 
 }

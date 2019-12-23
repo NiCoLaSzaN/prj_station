@@ -73,7 +73,7 @@ public:
     QList<QString>metJourSemaine();
 
 
-    QList<QString>capteur();
+//    QList<QString>capteur();
 
 };
 
