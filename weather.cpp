@@ -428,6 +428,8 @@ QPixmap weather::metCreationPixmap(QString val){
     QPixmap res;
     if(val == "Rain")
         res = QPixmap(":/new/prefix1/logo/pluie.png");
+    else if(val=="Mist")
+        res=QPixmap(":/new/prefix1/logo/nuage-leger.png");
     else if(val == "Clear")
         res = QPixmap(":/new/prefix1/logo/soleil.png");
     else if(val == "Clouds")
@@ -565,24 +567,17 @@ QString weather::metAffichageDate(){
     }else if(jour=="ven."){
         jour="vendredi";
     }
+
     if(mois=="déc."){
         mois="décembre";
     }else if(mois=="jan."){
         mois="janvier";
     }else if(mois=="fév."){
         mois="février";
-    }else if(mois == "mar."){
-        mois="mars";
     }else if(mois=="avr."){
         mois="avril";
-    }else if(mois=="mai."){
-        mois="mai";
-    }else if(mois=="jui."){
-        mois="juin";
     }else if(mois=="jui."){
         mois="juillet";
-    }else if(mois=="aoû."){
-        mois="août";
     }else if(mois=="sep."){
         mois="septembre";
     }else if(mois=="oct."){
@@ -590,7 +585,6 @@ QString weather::metAffichageDate(){
     }else if(mois=="nov."){
         mois="novembre";
     }
-
     date_final=jour+" "+date_jour+" "+mois+" "+date_annee;
     return date_final;
 }

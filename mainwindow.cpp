@@ -51,7 +51,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->Date_Time->setFont(f2);
     ui->Digital_clock->setFont(f2);
 
-    // affichage pictogramme et temperature actuel
+    // affichage des labels des previsions de la semaine
 
     weather w5;
     ui->lineEditPrev1Date->setText(w5.metJourSemaine()[0]+" "+w5.metRecupDateSemaine()[0]);
@@ -59,6 +59,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEditPrev3Date->setText(w5.metJourSemaine()[2]+" "+w5.metRecupDateSemaine()[2]);
     ui->lineEditPrev4Date->setText(w5.metJourSemaine()[3]+" "+w5.metRecupDateSemaine()[3]);
     ui->lineEditPrev5Date->setText(w5.metJourSemaine()[4]+" "+w5.metRecupDateSemaine()[4]);
+
+    // affichage pictogramme et temperature actuel
 
     QString meteo;
     meteo = w5.metPictogrammeTmpActuel();
@@ -74,7 +76,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEditPrev4Temp->setText(w5.metPrevTmpDateC().values()[3]);
     ui->lineEditPrev5Temp->setText(w5.metPrevTmpDateC().values()[4]);
 
-    // affichage pictogrammes des previsions
+    // affichage pictogrammes des previsions de la semaine
 
     ui->pict1->setScaledContents(1);
     ui->pict1->setPixmap(w5.metCreationPixmap(w5.metPictogrammeTmpPrevision()[0]));
@@ -87,7 +89,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pict5->setScaledContents(1);
     ui->pict5->setPixmap(w5.metCreationPixmap(w5.metPictogrammeTmpPrevision()[4]));
 
-    // affichage des datas du capteur
+    // affichage des datas du capteur en CELCIUS
 
 //    ui->lineEditIntTemp->setText(w5.capteur()[0]);
 //    ui->lineEditIntHumidity->setText(w5.capteur()[3]);
@@ -124,13 +126,16 @@ void MainWindow::on_checkBoxF_stateChanged(int arg1)
         ui->lineEditExtHumidity->setText(w3.metExtHumidityF());
         ui->lineEditExtMax->setText(w3.metExtTmpMaxF());
         ui->lineEditExtMin->setText(w3.metExtTmpMinF());
+
+    // affichage des temperatures des previsions de la semaine en FAHRENHEIT
+
         ui->lineEditPrev1Temp->setText(w3.metPrevTmpDateF().values()[0]);
         ui->lineEditPrev2Temp->setText(w3.metPrevTmpDateF().values()[1]);
         ui->lineEditPrev3Temp->setText(w3.metPrevTmpDateF().values()[2]);
         ui->lineEditPrev4Temp->setText(w3.metPrevTmpDateF().values()[3]);
         ui->lineEditPrev5Temp->setText(w3.metPrevTmpDateF().values()[4]);
 
-      // affichage jours semaine et date previsions FAHRENHEIT
+      // affichage des labels des previsions de la semaine en FAHRENHEIT
 
         ui->lineEditPrev1Date->setText(w3.metJourSemaine()[0]+" "+w3.metRecupDateSemaine()[0]);
         ui->lineEditPrev2Date->setText(w3.metJourSemaine()[1]+" "+w3.metRecupDateSemaine()[1]);
@@ -150,13 +155,16 @@ void MainWindow::on_checkBoxF_stateChanged(int arg1)
             ui->lineEditExtHumidity->setText(w4.metExtHumidityC());
             ui->lineEditExtMax->setText(w4.metExtTmpMaxC());
             ui->lineEditExtMin->setText(w4.metExtTmpMinC());
+
+        // affichage des temperatures des previsions de la semaine en CELCIUS
+
             ui->lineEditPrev1Temp->setText(w4.metPrevTmpDateC().values()[0]);
             ui->lineEditPrev2Temp->setText(w4.metPrevTmpDateC().values()[1]);
             ui->lineEditPrev3Temp->setText(w4.metPrevTmpDateC().values()[2]);
             ui->lineEditPrev4Temp->setText(w4.metPrevTmpDateC().values()[3]);
             ui->lineEditPrev5Temp->setText(w4.metPrevTmpDateC().values()[4]);
 
-            // affichage jours semaine et date previsions CELCIUS
+            // affichage des labels des previsions de la semaine CELCIUS
 
             ui->lineEditPrev1Date->setText(w4.metJourSemaine()[0]+" "+w4.metRecupDateSemaine()[0]);
             ui->lineEditPrev2Date->setText(w4.metJourSemaine()[1]+" "+w4.metRecupDateSemaine()[1]);
