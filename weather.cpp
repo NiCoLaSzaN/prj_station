@@ -4,135 +4,74 @@
 
 weather::weather(){}
 
-    // methode api pour humidité exterieur actuel CELCIUS
+    // methode api recupération des données Exterieur Actuel en CELCIUS
 
-QString weather::metExtHumidityC(){
-        QNetworkRequest request(QUrl("http://api.openweathermap.org/data/2.5/weather?q=Paris&units=metric&appid=1ca25422b331304ab48eab60d0d1ab54"));
-        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-        QNetworkAccessManager mgr;
-        QNetworkReply * reply = mgr.get(request);
-        while(!reply->isFinished()){
-            qApp->processEvents();}
-        QByteArray reponse = reply->readAll();
-        QJsonDocument configJsonDoc = QJsonDocument::fromJson(reponse);
-        QJsonDocument jsonResponse = configJsonDoc;
-        QJsonObject jsonObject = jsonResponse.object();
-        QJsonValue ress = jsonObject.value("main");
-        QJsonValue ress2 = ress["humidity"];
-        int n = ress2.toInt();
-        QString nn;
-        nn = QString::number(n);
-        this->ExtHumidityC = nn;
-        return this->ExtHumidityC;
+QList<QString>weather::metMeteoExt(){
+    QList<QString>listetmp;
+    QNetworkRequest request(QUrl("http://api.openweathermap.org/data/2.5/weather?q=Paris&units=metric&appid=1ca25422b331304ab48eab60d0d1ab54"));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    QNetworkAccessManager mgr;
+    QNetworkReply * reply = mgr.get(request);
+    while(!reply->isFinished()){
+        qApp->processEvents();}
+    QByteArray reponse = reply->readAll();
+    QJsonDocument configJsonDoc = QJsonDocument::fromJson(reponse);
+    QJsonDocument jsonResponse = configJsonDoc;
+    QJsonObject jsonObject = jsonResponse.object();
+    QJsonValue ress = jsonObject.value("main");
+    QJsonValue ress2 = ress["humidity"];
+    int n = ress2.toInt();
+    QString nn;
+    nn = QString::number(n);
+    QJsonValue ressMax = ress["temp_max"];
+    double nMax = ressMax.toDouble();
+    QString nnMax;
+    nnMax = QString::number(nMax);
+    QJsonValue ressMin = ress["temp_min"];
+    double nMin = ressMin.toDouble();
+    QString nnMin;
+    nnMin = QString::number(nMin);
+    listetmp.push_back(nn);
+    listetmp.push_back(nnMax);
+    listetmp.push_back(nnMin);
+    this->listeExt=listetmp;
+    return listeExt;
 }
 
-    // methode api temperature exterieur maximum actuel CELCIUS
+// methode api recupération des données Exterieur Actuel en FAHRENHEIT
 
-QString weather::metExtTmpMaxC(){
-        QNetworkRequest request(QUrl("http://api.openweathermap.org/data/2.5/weather?q=Paris&units=metric&appid=1ca25422b331304ab48eab60d0d1ab54"));
-        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-        QNetworkAccessManager mgr;
-        QNetworkReply * reply = mgr.get(request);
-        while(!reply->isFinished()){
-            qApp->processEvents();}
-        QByteArray reponse = reply->readAll();
-        QJsonDocument configJsonDoc = QJsonDocument::fromJson(reponse);
-        QJsonDocument jsonResponse = configJsonDoc;
-        QJsonObject jsonObject = jsonResponse.object();
-        QJsonValue ress = jsonObject.value("main");
-        QJsonValue ress2 = ress["temp_max"];
-        double n = ress2.toDouble();
-        QString nn;
-        nn = QString::number(n);
-        this->ExtTmpMaxC = nn;
-        return this->ExtTmpMaxC;
+QList<QString>weather::metMeteoExtF(){
+    QList<QString>listetmp;
+    QNetworkRequest request(QUrl("http://api.openweathermap.org/data/2.5/weather?q=Paris&units=imperial&appid=1ca25422b331304ab48eab60d0d1ab54"));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    QNetworkAccessManager mgr;
+    QNetworkReply * reply = mgr.get(request);
+    while(!reply->isFinished()){
+        qApp->processEvents();}
+    QByteArray reponse = reply->readAll();
+    QJsonDocument configJsonDoc = QJsonDocument::fromJson(reponse);
+    QJsonDocument jsonResponse = configJsonDoc;
+    QJsonObject jsonObject = jsonResponse.object();
+    QJsonValue ress = jsonObject.value("main");
+    QJsonValue ress2 = ress["humidity"];
+    int n = ress2.toInt();
+    QString nn;
+    nn = QString::number(n);
+    QJsonValue ressMax = ress["temp_max"];
+    double nMax = ressMax.toDouble();
+    QString nnMax;
+    nnMax = QString::number(nMax);
+    QJsonValue ressMin = ress["temp_min"];
+    double nMin = ressMin.toDouble();
+    QString nnMin;
+    nnMin = QString::number(nMin);
+    listetmp.push_back(nn);
+    listetmp.push_back(nnMax);
+    listetmp.push_back(nnMin);
+    this->listeExtF=listetmp;
+    return listeExtF;
 }
-
-    // methode api temperature exterieur minimum actuel CELCIUS
-
-QString weather::metExtTmpMinC(){
-        QNetworkRequest request(QUrl("http://api.openweathermap.org/data/2.5/weather?q=Paris&units=metric&appid=1ca25422b331304ab48eab60d0d1ab54"));
-        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-        QNetworkAccessManager mgr;
-        QNetworkReply * reply = mgr.get(request);
-        while(!reply->isFinished()){
-            qApp->processEvents();}
-        QByteArray reponse = reply->readAll();
-        QJsonDocument configJsonDoc = QJsonDocument::fromJson(reponse);
-        QJsonDocument jsonResponse = configJsonDoc;
-        QJsonObject jsonObject = jsonResponse.object();
-        QJsonValue ress = jsonObject.value("main");
-        QJsonValue ress2 = ress["temp_min"];
-        double n = ress2.toDouble();
-        QString nn;
-        nn = QString::number(n);
-        this->ExtTmpMinC = nn;
-        return this->ExtTmpMinC;
-}
-    // methode api pour humidité exterieur actuel FAHRENHEIT
-
-QString weather::metExtHumidityF(){
-        QNetworkRequest request(QUrl("http://api.openweathermap.org/data/2.5/weather?q=Paris&units=imperial&appid=1ca25422b331304ab48eab60d0d1ab54"));
-        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-        QNetworkAccessManager mgr;
-        QNetworkReply * reply = mgr.get(request);
-        while(!reply->isFinished()){
-            qApp->processEvents();}
-        QByteArray reponse = reply->readAll();
-        QJsonDocument configJsonDoc = QJsonDocument::fromJson(reponse);
-        QJsonDocument jsonResponse = configJsonDoc;
-        QJsonObject jsonObject = jsonResponse.object();
-        QJsonValue ress = jsonObject.value("main");
-        QJsonValue ress2 = ress["humidity"];
-        int n = ress2.toInt();
-        QString nn;
-        nn = QString::number(n);
-        this->ExtHumidityF = nn;
-        return this->ExtHumidityF;
-}
-    // methode api temperature exterieur maximum actuel FAHRENHEIT
-
-QString weather::metExtTmpMaxF(){
-        QNetworkRequest request(QUrl("http://api.openweathermap.org/data/2.5/weather?q=Paris&units=imperial&appid=1ca25422b331304ab48eab60d0d1ab54"));
-        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-        QNetworkAccessManager mgr;
-        QNetworkReply * reply = mgr.get(request);
-        while(!reply->isFinished()){
-            qApp->processEvents();}
-        QByteArray reponse = reply->readAll();
-        QJsonDocument configJsonDoc = QJsonDocument::fromJson(reponse);
-        QJsonDocument jsonResponse = configJsonDoc;
-        QJsonObject jsonObject = jsonResponse.object();
-        QJsonValue ress = jsonObject.value("main");
-        QJsonValue ress2 = ress["temp_max"];
-        double n = ress2.toDouble();
-        QString nn;
-        nn = QString::number(n);
-        this->ExtTmpMaxF = nn;
-        return this->ExtTmpMaxF;
-}
-    // methode api temperature exterieur minimum actuel FAHRENHEIT
-
-QString weather::metExtTmpMinF(){
-        QNetworkRequest request(QUrl("http://api.openweathermap.org/data/2.5/weather?q=Paris&units=imperial&appid=1ca25422b331304ab48eab60d0d1ab54"));
-        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-        QNetworkAccessManager mgr;
-        QNetworkReply * reply = mgr.get(request);
-        while(!reply->isFinished()){
-            qApp->processEvents();}
-        QByteArray reponse = reply->readAll();
-        QJsonDocument configJsonDoc = QJsonDocument::fromJson(reponse);
-        QJsonDocument jsonResponse = configJsonDoc;
-        QJsonObject jsonObject = jsonResponse.object();
-        QJsonValue ress = jsonObject.value("main");
-        QJsonValue ress2 = ress["temp_min"];
-        double n = ress2.toDouble();
-        QString nn;
-        nn = QString::number(n);
-        this->ExtTmpMinF = nn;
-        return this->ExtTmpMinF;
-}
-    // methode previsions CELCIUS
+    // methode api des previsions meteo CELCIUS
 
 QMap<QString,QString>weather::metPrevTmpDateC(){
         QNetworkRequest request(QUrl("http://api.openweathermap.org/data/2.5/forecast?q=Paris&units=metric&appid=1ca25422b331304ab48eab60d0d1ab54"));
@@ -162,7 +101,7 @@ QMap<QString,QString>weather::metPrevTmpDateC(){
         this->PrevDateC=dico;
         return this->PrevDateC;
 }
-    // methode previsions FAHRENHEIT
+    // methode api des previsions meteo FAHRENHEIT
 
 QMap<QString,QString>weather::metPrevTmpDateF(){
         QNetworkRequest request(QUrl("http://api.openweathermap.org/data/2.5/forecast?q=Paris&units=imperial&appid=1ca25422b331304ab48eab60d0d1ab54"));
@@ -473,7 +412,7 @@ QList<QString>weather::metPictogrammeTmpPrevision(){
         this->stringPrevision=listePrev;
         return this->stringPrevision;
 }
-  // methode en cour recuperer les dates pour afficher les jours de la semaines
+    // methode en cour recuperer les dates pour afficher les jours de la semaines
 
 QList<QString>weather::metRecupDateSemaine(){
 
@@ -500,6 +439,7 @@ QList<QString>weather::metRecupDateSemaine(){
     this->RecupDateSemaine=listTmp;
     return this->RecupDateSemaine;
 }
+    // methode manipulation des datas pour un affichage des jours de la semaine
 
 QList<QString>weather::metJourSemaine(){
 
@@ -539,62 +479,5 @@ QList<QString>weather::metJourSemaine(){
     this->listSemaine = maList;
     return this->listSemaine;
 }
-
-// methode affichage date in process
-
-QString weather::metAffichageDate(){
-
-    QString date_final;
-    QDate date;
-    QString dateText=date.currentDate().toString();
-    QStringList t3 = dateText.split(' ');
-    QString jour = t3[0];
-    QString mois = t3[1];
-    QString date_jour = t3[2];
-    QString date_annee = t3[3];
-    if(jour=="sam."){
-        jour="samedi";
-    }else if(jour=="dim."){
-        jour="dimanche";
-    }else if(jour=="lun."){
-        jour="Lundi";
-    }else if(jour=="mar."){
-        jour="mardi";
-    }else if(jour=="mer."){
-        jour="mercredi";
-    }else if(jour=="jeu."){
-        jour="jeudi";
-    }else if(jour=="ven."){
-        jour="vendredi";
-    }
-
-    if(mois=="déc."){
-        mois="décembre";
-    }else if(mois=="jan."){
-        mois="janvier";
-    }else if(mois=="fév."){
-        mois="février";
-    }else if(mois=="avr."){
-        mois="avril";
-    }else if(mois=="jui."){
-        mois="juillet";
-    }else if(mois=="sep."){
-        mois="septembre";
-    }else if(mois=="oct."){
-        mois="octobre";
-    }else if(mois=="nov."){
-        mois="novembre";
-    }
-    date_final=jour+" "+date_jour+" "+mois+" "+date_annee;
-    return date_final;
-}
-
-
-
-
-
-
-
-
 
 

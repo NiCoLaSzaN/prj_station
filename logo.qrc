@@ -7,7 +7,6 @@
         <file>logo/pluie.png</file>
         <file>logo/soleil.png</file>
         <file>logo/soleil-nuage.png</file>
-        <file>../../Téléchargements/brouillard.png</file>
     </qresource>
     <qresource prefix="/pic">
         <file>sky.jpg</file>

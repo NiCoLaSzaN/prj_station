@@ -29,9 +29,7 @@
 class weather : public QObject
 {
 private :
-    QString ExtHumidityC;
-    QString ExtTmpMaxC;
-    QString ExtTmpMinC;
+
     QMap<QString,QString>PrevDateC;
 
     QString ExtHumidityF;
@@ -51,6 +49,9 @@ private :
 
     QString AffDate;
 
+    QList<QString>listeExt;
+    QList<QString>listeExtF;
+
 public:
     weather();
 
@@ -59,20 +60,17 @@ public:
     QList<QString>metPictogrammeTmpPrevision();
     QPixmap metPixMapPrev(QString);
 
-    QString metExtHumidityC();
-    QString metExtTmpMaxC();
-    QString metExtTmpMinC();
     QMap<QString,QString> metPrevTmpDateC();
 
-    QString metExtHumidityF();
-    QString metExtTmpMaxF();
-    QString metExtTmpMinF();
     QMap<QString,QString>metPrevTmpDateF();
 
     QList<QString>metRecupDateSemaine();
     QList<QString>metJourSemaine();
 
     QString metAffichageDate();
+
+    QList<QString>metMeteoExt();
+    QList<QString>metMeteoExtF();
 
 //    QList<QString>capteur();
 

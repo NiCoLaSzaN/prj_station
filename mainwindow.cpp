@@ -1,9 +1,8 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "weather.h"
 #include <QPixmap>
 #include <QDesktopWidget>
-
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
 
-    // mise en forme de la fenetre de l'application
+    // mise en forme de la fenetre de l'application pour l'image de fond
 
     QDesktopWidget bureau;
     QRect surface_bureau = bureau.screenGeometry();
@@ -19,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     int y = surface_bureau.height()/2 - height()/2;
     move(x,y);
 
-    // fond background
+    // image de fond de l'application
 
     QPixmap pix(":/pic/sky.jpg");
     ui->fond->setPixmap(pix.scaled(867, 867, Qt::KeepAspectRatio));
@@ -37,8 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // affichage date
 
-    weather date;
-    ui->Date_Time->setText(date.metAffichageDate());
+    ui->Date_Time->setText(QDate::currentDate().toString("dddd d MMMM yyyy"));
 
     // font label Interieur et Exterieur
 
@@ -67,16 +65,21 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->soleil->setScaledContents(1);
     ui->soleil->setPixmap(w5.metCreationPixmap(meteo));
 
-    ui->lineEditExtHumidity->setText(w5.metExtHumidityC());
-    ui->lineEditExtMax->setText(w5.metExtTmpMaxC());
-    ui->lineEditExtMin->setText(w5.metExtTmpMinC());
+    // affichage des données Exterieur Actuel en Celcius
+
+    ui->lineEditExtHumidity->setText(w5.metMeteoExt()[0]); // humidity
+    ui->lineEditExtMax->setText(w5.metMeteoExt()[1]);      // temp max celcius
+    ui->lineEditExtMin->setText(w5.metMeteoExt()[2]);      // temp min celcius
+
+    // affichage des données de température des prévisions de la semaine en celcius
+
     ui->lineEditPrev1Temp->setText(w5.metPrevTmpDateC().values()[0]);
     ui->lineEditPrev2Temp->setText(w5.metPrevTmpDateC().values()[1]);
     ui->lineEditPrev3Temp->setText(w5.metPrevTmpDateC().values()[2]);
     ui->lineEditPrev4Temp->setText(w5.metPrevTmpDateC().values()[3]);
     ui->lineEditPrev5Temp->setText(w5.metPrevTmpDateC().values()[4]);
 
-    // affichage pictogrammes des previsions de la semaine
+    // affichage des pictogrammes des previsions de la semaine
 
     ui->pict1->setScaledContents(1);
     ui->pict1->setPixmap(w5.metCreationPixmap(w5.metPictogrammeTmpPrevision()[0]));
@@ -110,7 +113,7 @@ void MainWindow::showTime(){
 MainWindow::~MainWindow(){
     delete ui;
 }
-    // methode de fermeture de la fenetre fichier => quitter
+       // methode de fermeture de la fenetre fichier => quitter
 
 void MainWindow::on_actionQuitter_triggered(){
     this->close();
@@ -120,41 +123,41 @@ void MainWindow::on_checkBoxF_stateChanged(int arg1)
 {
     if(ui->checkBoxF->isChecked()){
 
-    // affichage temperature exterieur FAHRENHEIT
+       // affichage des données exterieur Actuel en FAHRENHEIT
 
-    weather w3;
-        ui->lineEditExtHumidity->setText(w3.metExtHumidityF());
-        ui->lineEditExtMax->setText(w3.metExtTmpMaxF());
-        ui->lineEditExtMin->setText(w3.metExtTmpMinF());
+           weather w3;
+           ui->lineEditExtHumidity->setText(w3.metMeteoExtF()[0]);
+           ui->lineEditExtMax->setText(w3.metMeteoExtF()[1]);
+           ui->lineEditExtMin->setText(w3.metMeteoExtF()[2]);
 
-    // affichage des temperatures des previsions de la semaine en FAHRENHEIT
+       // affichage des temperatures des previsions de la semaine en FAHRENHEIT
 
-        ui->lineEditPrev1Temp->setText(w3.metPrevTmpDateF().values()[0]);
-        ui->lineEditPrev2Temp->setText(w3.metPrevTmpDateF().values()[1]);
-        ui->lineEditPrev3Temp->setText(w3.metPrevTmpDateF().values()[2]);
-        ui->lineEditPrev4Temp->setText(w3.metPrevTmpDateF().values()[3]);
-        ui->lineEditPrev5Temp->setText(w3.metPrevTmpDateF().values()[4]);
+           ui->lineEditPrev1Temp->setText(w3.metPrevTmpDateF().values()[0]);
+           ui->lineEditPrev2Temp->setText(w3.metPrevTmpDateF().values()[1]);
+           ui->lineEditPrev3Temp->setText(w3.metPrevTmpDateF().values()[2]);
+           ui->lineEditPrev4Temp->setText(w3.metPrevTmpDateF().values()[3]);
+           ui->lineEditPrev5Temp->setText(w3.metPrevTmpDateF().values()[4]);
 
-      // affichage des labels des previsions de la semaine en FAHRENHEIT
+        // affichage des labels des previsions de la semaine en FAHRENHEIT
 
-        ui->lineEditPrev1Date->setText(w3.metJourSemaine()[0]+" "+w3.metRecupDateSemaine()[0]);
-        ui->lineEditPrev2Date->setText(w3.metJourSemaine()[1]+" "+w3.metRecupDateSemaine()[1]);
-        ui->lineEditPrev3Date->setText(w3.metJourSemaine()[2]+" "+w3.metRecupDateSemaine()[2]);
-        ui->lineEditPrev4Date->setText(w3.metJourSemaine()[3]+" "+w3.metRecupDateSemaine()[3]);
-        ui->lineEditPrev5Date->setText(w3.metJourSemaine()[4]+" "+w3.metRecupDateSemaine()[4]);
+           ui->lineEditPrev1Date->setText(w3.metJourSemaine()[0]+" "+w3.metRecupDateSemaine()[0]);
+           ui->lineEditPrev2Date->setText(w3.metJourSemaine()[1]+" "+w3.metRecupDateSemaine()[1]);
+           ui->lineEditPrev3Date->setText(w3.metJourSemaine()[2]+" "+w3.metRecupDateSemaine()[2]);
+           ui->lineEditPrev4Date->setText(w3.metJourSemaine()[3]+" "+w3.metRecupDateSemaine()[3]);
+           ui->lineEditPrev5Date->setText(w3.metJourSemaine()[4]+" "+w3.metRecupDateSemaine()[4]);
 
-      // affichage des datas du capteur FAHRENHEIT
+        // affichage des datas du capteur FAHRENHEIT
 
 //        ui->lineEditIntTemp->setText(w3.capteur()[1]);
 //        ui->lineEditPression->setText(w3.capteur()[2]);
     }else{
 
-        // affichage des temperatures exterieur CELCIUS
+        // affichage des temperatures exterieur actuel CELCIUS
 
             weather w4;
-            ui->lineEditExtHumidity->setText(w4.metExtHumidityC());
-            ui->lineEditExtMax->setText(w4.metExtTmpMaxC());
-            ui->lineEditExtMin->setText(w4.metExtTmpMinC());
+            ui->lineEditExtHumidity->setText(w4.metMeteoExt()[0]);
+            ui->lineEditExtMax->setText(w4.metMeteoExt()[1]);
+            ui->lineEditExtMin->setText(w4.metMeteoExt()[2]);
 
         // affichage des temperatures des previsions de la semaine en CELCIUS
 
@@ -164,7 +167,7 @@ void MainWindow::on_checkBoxF_stateChanged(int arg1)
             ui->lineEditPrev4Temp->setText(w4.metPrevTmpDateC().values()[3]);
             ui->lineEditPrev5Temp->setText(w4.metPrevTmpDateC().values()[4]);
 
-            // affichage des labels des previsions de la semaine CELCIUS
+        // affichage des labels des previsions de la semaine CELCIUS
 
             ui->lineEditPrev1Date->setText(w4.metJourSemaine()[0]+" "+w4.metRecupDateSemaine()[0]);
             ui->lineEditPrev2Date->setText(w4.metJourSemaine()[1]+" "+w4.metRecupDateSemaine()[1]);
@@ -172,7 +175,7 @@ void MainWindow::on_checkBoxF_stateChanged(int arg1)
             ui->lineEditPrev4Date->setText(w4.metJourSemaine()[3]+" "+w4.metRecupDateSemaine()[3]);
             ui->lineEditPrev5Date->setText(w4.metJourSemaine()[4]+" "+w4.metRecupDateSemaine()[4]);
 
-            // affichage des datas du capteur CELCIUS
+        // affichage des datas du capteur CELCIUS
 
 //            ui->lineEditIntTemp->setText(w4.capteur()[0]);
 //            ui->lineEditIntHumidity->setText(w4.capteur()[3]);
