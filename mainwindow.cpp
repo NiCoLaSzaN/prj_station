@@ -20,8 +20,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // image de fond de l'application
 
-//    QPixmap pix(":/pic/sky.jpg");
-//    ui->fond->setPixmap(pix.scaled(867, 867, Qt::KeepAspectRatio));
+    QPixmap pix(":/pic/sky.jpg");
+    ui->fond->setPixmap(pix.scaled(867, 867, Qt::KeepAspectRatio));
 
     // affichage du titre de la fenetre
 

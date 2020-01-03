@@ -17,14 +17,14 @@
    <widget class="QLabel" name="labelEXT">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>20</y>
+      <x>50</x>
+      <y>30</y>
       <width>171</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>  Extérieur</string>
+     <string>Extérieur</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -33,40 +33,49 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>670</x>
       <y>230</y>
-      <width>61</width>
+      <width>101</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>Pression</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>660</x>
       <y>110</y>
-      <width>91</width>
+      <width>121</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>Température</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>670</x>
       <y>170</y>
-      <width>61</width>
+      <width>101</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
      <string>Humidité</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_9">
@@ -74,25 +83,31 @@
      <rect>
       <x>80</x>
       <y>190</y>
-      <width>61</width>
+      <width>91</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>Humidité</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>40</x>
       <y>110</y>
-      <width>101</width>
+      <width>181</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>Temp Min / Max</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEditPression">
@@ -122,7 +137,7 @@
    <widget class="QLineEdit" name="lineEditExtHumidity">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>90</x>
       <y>170</y>
       <width>71</width>
       <height>21</height>
@@ -142,7 +157,7 @@
    <widget class="QSplitter" name="splitter_7">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>60</x>
       <y>90</y>
       <width>141</width>
       <height>22</height>
@@ -175,21 +190,21 @@
    <widget class="QLabel" name="labelFormat">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>60</y>
-      <width>231</width>
+      <x>380</x>
+      <y>80</y>
+      <width>41</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Température en : ° C</string>
+     <string>° C</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="checkBoxF">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>60</y>
+      <x>440</x>
+      <y>80</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -202,7 +217,7 @@
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>110</y>
+      <y>150</y>
       <width>171</width>
       <height>16</height>
      </rect>
@@ -214,10 +229,10 @@
    <widget class="QLabel" name="soleil">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>130</y>
-      <width>151</width>
-      <height>121</height>
+      <x>360</x>
+      <y>170</y>
+      <width>131</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
@@ -231,7 +246,7 @@
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>410</y>
+      <y>440</y>
       <width>540</width>
       <height>22</height>
      </rect>
@@ -249,7 +264,7 @@
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>330</y>
+      <y>360</y>
       <width>541</width>
       <height>71</height>
      </rect>
@@ -287,7 +302,7 @@
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>280</y>
+      <y>310</y>
       <width>171</width>
       <height>20</height>
      </rect>
@@ -312,7 +327,7 @@
    <widget class="QLabel" name="Digital_clock">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>390</x>
       <y>30</y>
       <width>121</width>
       <height>16</height>
@@ -326,13 +341,13 @@
     <property name="geometry">
      <rect>
       <x>640</x>
-      <y>20</y>
+      <y>30</y>
       <width>171</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string> Intérieur</string>
+     <string>Intérieur</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -341,8 +356,8 @@
    <widget class="QSplitter" name="splitter">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>300</y>
+      <x>150</x>
+      <y>330</y>
       <width>541</width>
       <height>31</height>
      </rect>
@@ -379,14 +394,70 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>450</y>
-      <width>541</width>
-      <height>321</height>
+      <x>-10</x>
+      <y>460</y>
+      <width>881</width>
+      <height>211</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout"/>
    </widget>
+   <widget class="QLabel" name="fond">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>891</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelFormat_2">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>60</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Température en :</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <zorder>fond</zorder>
+   <zorder>labelEXT</zorder>
+   <zorder>label_6</zorder>
+   <zorder>label_7</zorder>
+   <zorder>label_8</zorder>
+   <zorder>label_9</zorder>
+   <zorder>label_10</zorder>
+   <zorder>lineEditPression</zorder>
+   <zorder>splitter_8</zorder>
+   <zorder>lineEditExtHumidity</zorder>
+   <zorder>lineEditIntHumidity</zorder>
+   <zorder>splitter_7</zorder>
+   <zorder>splitter_9</zorder>
+   <zorder>labelFormat</zorder>
+   <zorder>checkBoxF</zorder>
+   <zorder>labelActuel</zorder>
+   <zorder>soleil</zorder>
+   <zorder>splitter_2</zorder>
+   <zorder>splitter_3</zorder>
+   <zorder>labelPrevision</zorder>
+   <zorder>Date_Time</zorder>
+   <zorder>Digital_clock</zorder>
+   <zorder>labelINT</zorder>
+   <zorder>splitter</zorder>
+   <zorder>gridLayoutWidget</zorder>
+   <zorder>labelFormat_2</zorder>
+   <zorder>horizontalSpacer</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -394,7 +465,7 @@
      <x>0</x>
      <y>0</y>
      <width>888</width>
-     <height>19</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
