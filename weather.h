@@ -92,8 +92,6 @@ public:
     QList<QString>metMeteoExt();
     QList<QString>metMeteoExtF();
 
-    QLineSeries metSeries();
-
     QChartView *metChartviewC(QList<QString>);
 
     QList<QString>capteur();
