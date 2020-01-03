@@ -1,4 +1,4 @@
-﻿
+
 #include "weather.h"
 #include "mainwindow.h"
 
@@ -132,7 +132,7 @@ QMap<QString,QString>weather::metPrevTmpDateF(){
         return this->PrevDateF;
 }
     // methode recolte des datas du capteur
-/*
+
 QList<QString>weather::capteur(){
 
     int file;
@@ -339,7 +339,7 @@ QList<QString>weather::capteur(){
 
     return this->dataCapteur;
 }
-*/
+
     // methode recuperation du temp actuel pour affichage des pictogrammes
 
 QString weather::metPictogrammeTmpActuel(){
@@ -478,6 +478,32 @@ QList<QString>weather::metJourSemaine(){
     }
     this->listSemaine = maList;
     return this->listSemaine;
+}
+
+  // methode affichage graphique des previsions en Celcius
+
+QChartView * weather::metChartviewC(QList<QString>lst){
+    QLineSeries *seriestmp = new QLineSeries;
+    lst.push_front(0);
+    for(int i=0; i <  lst.size(); i++){
+       seriestmp->append(i, lst.at(i).toDouble());
+    }
+    QChart *chart = new QChart();
+    chart->legend()->hide();
+    chart->addSeries(seriestmp);
+    chart->createDefaultAxes();
+    chart->setTitle("graphique des prévisions à venir");
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    QCategoryAxis *axisX = new QCategoryAxis();
+    QDate dateAuj = QDate::currentDate();
+    for (int i = 1; i <= 5; i++){
+        axisX->append((dateAuj.addDays(i)).toString("dddd") ,i);
+    }
+    axisX->setRange(0, 5);
+    chartView->chart()->setAxisX(axisX,seriestmp);
+    this->myChart=chartView;
+    return this->myChart;
 }
 
 

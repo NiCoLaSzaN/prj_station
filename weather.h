@@ -25,6 +25,25 @@
 #include <sys/ioctl.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <QtCharts>
+#include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>
+#include <QtCharts/QSplineSeries>
+#include <QtCharts/QAreaSeries>
+#include <QtCharts/QLegend>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QFormLayout>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QSpinBox>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QGroupBox>
+#include <QtWidgets/QLabel>
+#include <QtCore/QRandomGenerator>
+#include <QtCharts/QBarCategoryAxis>
+#include <QtWidgets/QApplication>
+#include <QtCharts/QValueAxis>
+#include <QLineSeries>
+#include <QSplineSeries>
 
 class weather : public QObject
 {
@@ -52,6 +71,8 @@ private :
     QList<QString>listeExt;
     QList<QString>listeExtF;
 
+    QChartView *myChart;
+
 public:
     weather();
 
@@ -60,8 +81,7 @@ public:
     QList<QString>metPictogrammeTmpPrevision();
     QPixmap metPixMapPrev(QString);
 
-    QMap<QString,QString> metPrevTmpDateC();
-
+    QMap<QString,QString>metPrevTmpDateC();
     QMap<QString,QString>metPrevTmpDateF();
 
     QList<QString>metRecupDateSemaine();
@@ -72,7 +92,11 @@ public:
     QList<QString>metMeteoExt();
     QList<QString>metMeteoExtF();
 
-//    QList<QString>capteur();
+    QLineSeries metSeries();
+
+    QChartView *metChartviewC(QList<QString>);
+
+    QList<QString>capteur();
 
 };
 

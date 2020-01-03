@@ -6,6 +6,7 @@
 
 QT       += core gui
 QT += network
+QT += charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -37,6 +38,7 @@ FORMS += \
         mainwindow.ui
 
 LIBS+= -Wnarrowing
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
